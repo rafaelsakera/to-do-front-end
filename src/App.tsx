@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
+import { BrowserRouter, Route } from "react-router-dom";
+
+import ButtonAppBar from "./components/navBar/navBar";
+import AllTasksPage from "./pages/allTasksPage/AllTasksPage";
+import TodayTaskPage from "./pages/todayTasksPage/TodayTaskPage";
+import FullSchedualPage from "./pages/fullSchedulePage/FullSchedualPage";
+import TodaySchedulePage from "./pages/todaySchedulePage/todaySchedulePage";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ButtonAppBar />
+        <Route exact path="/today-tasks" component={TodayTaskPage} />
+        <Route exact path="/all-tasks" component={AllTasksPage} />
+        <Route exact path="/today-schedule" component={TodaySchedulePage} />
+        <Route exact path="/full-schedule" component={FullSchedualPage} />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
