@@ -10,6 +10,8 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
+import { dateToString } from "../../../utils/DateUtils";
+
 import useStyles from "./Style";
 
 const DialogForm: React.FC<{ newTask: Object; setNewTask: Function }> = ({
@@ -25,10 +27,16 @@ const DialogForm: React.FC<{ newTask: Object; setNewTask: Function }> = ({
   );
 
   React.useEffect(() => {
+    const strStartDate =
+      selectedStartDate !== null ? dateToString(selectedStartDate) : "";
+
+    const strEndDate =
+      selectedEndDate !== null ? dateToString(selectedEndDate) : "";
+
     setNewTask({
       ...newTask,
-      startDate: selectedStartDate,
-      endDate: selectedEndDate,
+      startDate: strStartDate,
+      endDate: strEndDate,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedStartDate, selectedEndDate]);

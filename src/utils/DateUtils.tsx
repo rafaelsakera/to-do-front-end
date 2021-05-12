@@ -18,6 +18,12 @@ export const getFullDate = (): string => {
   return getDate(date);
 };
 
+export const dateToString = (date: Date): string => {
+  const strDate: string = getDate(date);
+  const strTime: string = date.toLocaleTimeString("it-IT");
+  return strDate + "T" + strTime + ".000Z";
+};
+
 export const getNextDate = (date: string): string => {
   const curr = new Date(date);
   const next = new Date(curr);

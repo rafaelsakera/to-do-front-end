@@ -5,6 +5,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 
+import { addTask } from "../../../API/TodayTaskAPI";
+
 import DialogForm from "./DialogForm";
 
 const AddTaskDialog: React.FC<{
@@ -30,8 +32,7 @@ const AddTaskDialog: React.FC<{
         </Button>
         <Button
           onClick={() => {
-            setOpenDialog(false);
-            console.log(newTask);
+            addTask(setOpenDialog, newTask);
           }}
           color="primary"
           autoFocus

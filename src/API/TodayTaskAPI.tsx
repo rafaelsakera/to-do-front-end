@@ -13,3 +13,16 @@ export const getTasks = (
       console.log(err);
     });
 };
+
+export const addTask = (setOpenDialog: Function, newTask: Object) => {
+  console.log(newTask);
+  axios
+    .post("/add-new-task", newTask)
+    .then((res) => {
+      setOpenDialog(false);
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
