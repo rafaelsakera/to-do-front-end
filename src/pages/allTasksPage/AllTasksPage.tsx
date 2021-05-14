@@ -17,7 +17,10 @@ const AllTaskPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (getNewTask) getTasks(setTasks);
+    if (getNewTask) {
+      getTasks(setTasks);
+      setNewTasks(false);
+    }
   }, [getNewTask]);
 
   return (
