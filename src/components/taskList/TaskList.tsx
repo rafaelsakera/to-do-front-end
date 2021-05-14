@@ -12,9 +12,10 @@ import useStyles from "./Style";
 interface Props {
   tasks: CardData[];
   title: string;
+  setNewTasks: Function
 }
 
-const TaskList: React.FC<Props> = ({ tasks, title }) => {
+const TaskList: React.FC<Props> = ({ tasks, title, setNewTasks }) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +33,7 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
             let overTask = new Date(card.endDate) < new Date();
             return (
               <Grid item className={classes.cardItem} key={card._id}>
-                <CardTask data={card} overTask={overTask} />
+                <CardTask data={card} overTask={overTask} setNewTasks={setNewTasks}/>
               </Grid>
             );
           })}

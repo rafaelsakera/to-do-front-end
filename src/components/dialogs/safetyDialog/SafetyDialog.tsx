@@ -29,7 +29,7 @@ const SafetyDialog = (props: SimpleDialogProps) => {
         <DialogContentText>
           Are you sure want to delete this task?
           <br />
-          If do, Click the Delete Button.
+          If So, Click the Delete Button.
         </DialogContentText>
       </DialogContent>
       <Grid container justify={"center"} spacing={2}>

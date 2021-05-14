@@ -15,13 +15,9 @@ export const getTasks = (
 };
 
 export const addTask = (setOpenDialog: Function, newTask: Object) => {
-  console.log(newTask);
   axios
     .post("/add-new-task", newTask)
-    .then((res) => {
-      setOpenDialog(false);
-      console.log(res);
-    })
+    .then(() => setOpenDialog(false))
     .catch((err) => {
       console.log(err);
     });

@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Actions: React.FC<{ id: number }> = ({ id }) => {
+const Actions: React.FC<{ id: number; setNewTasks: Function }> = ({
+  id,
+  setNewTasks,
+}) => {
   const classes = useStyles();
   const [openSafety, setOpenSafety] = useState<boolean>(false);
 
@@ -34,7 +37,10 @@ const Actions: React.FC<{ id: number }> = ({ id }) => {
       <SafetyDialog
         open={openSafety}
         handleClose={() => setOpenSafety(false)}
-        action={() => deleteTask(id)}
+        action={() => {
+          deleteTask(id);
+          setNewTasks(true);
+        }}
         title={"Delete Action"}
       />
       <Grid container spacing={2} justify="center">

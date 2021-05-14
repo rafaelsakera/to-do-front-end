@@ -15,9 +15,10 @@ import { baseCardStyle } from "./Style";
 interface Props {
   data: CardData;
   overTask: boolean;
+  setNewTasks: Function;
 }
 
-const CardTask: React.FC<Props> = ({ data, overTask }) => {
+const CardTask: React.FC<Props> = ({ data, overTask, setNewTasks }) => {
   const classes = baseCardStyle();
   const root = clsx(classes.root, overTask && classes.overTime);
 
@@ -43,7 +44,7 @@ const CardTask: React.FC<Props> = ({ data, overTask }) => {
             <div className={classes.line}></div>
           </Grid>
           <Grid item className={classes.thirdSection}>
-            <Actions id={data._id} />
+            <Actions id={data._id} setNewTasks={setNewTasks} />
           </Grid>
         </Grid>
       </CardContent>

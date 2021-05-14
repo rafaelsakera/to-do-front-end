@@ -21,7 +21,6 @@ export const deleteTask = (id: number) => {
         taskId: id,
       },
     })
-    .then(() => console.log("delete"))
     .catch((err) => {
       console.log(err);
     });

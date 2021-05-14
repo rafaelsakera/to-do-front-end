@@ -9,16 +9,28 @@ import AddTaskModal from "../../components/dialogs/addTaskDialog/AddTaskDialog";
 
 const TodayTaskPage: React.FC = () => {
   const [tasks, setTasks] = useState<CardData[]>([]);
+  const [getNewTask, setNewTasks] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   useEffect(() => {
     getTasks(setTasks);
   }, []);
 
+  useEffect(() => {
+    if (getNewTask) {
+      getTasks(setTasks);
+      setNewTasks(false);
+    }
+  }, [getNewTask]);
+
   return (
     <div className="today-task-page">
-      <AddTaskModal openDialog={openDialog} setOpenDialog={setOpenDialog} />
-      <TaskList tasks={tasks} title={"Today Tasks"} />
+      <AddTaskModal
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+        setNewTasks={setNewTasks}
+      />
+      <TaskList tasks={tasks} title={"Today Tasks"} setNewTasks={setNewTasks} />
       <AddtaskBtn setOpenDialog={setOpenDialog} />
     </div>
   );

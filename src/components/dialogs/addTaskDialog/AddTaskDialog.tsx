@@ -12,7 +12,8 @@ import DialogForm from "./DialogForm";
 const AddTaskDialog: React.FC<{
   openDialog: boolean;
   setOpenDialog: Function;
-}> = ({ openDialog, setOpenDialog }) => {
+  setNewTasks: Function;
+}> = ({ openDialog, setOpenDialog, setNewTasks }) => {
   const [newTask, setNewTask] = React.useState({});
 
   return (
@@ -33,6 +34,7 @@ const AddTaskDialog: React.FC<{
         <Button
           onClick={() => {
             addTask(setOpenDialog, newTask);
+            setNewTasks(true);
           }}
           color="primary"
           autoFocus
