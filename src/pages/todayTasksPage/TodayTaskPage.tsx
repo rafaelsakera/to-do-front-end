@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { GetTaskContext } from "../../contexts/GetTasksContext";
+
 import { CardData } from "../../interfaces/CardData";
 import { getTasks } from "../../API/TodayTaskAPI";
 
@@ -9,8 +11,8 @@ import AddTaskModal from "../../components/dialogs/addTaskDialog/AddTaskDialog";
 
 const TodayTaskPage: React.FC = () => {
   const [tasks, setTasks] = useState<CardData[]>([]);
-  const [getNewTask, setNewTasks] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [getNewTask, setNewTasks] = React.useState<boolean>(false);
 
   useEffect(() => {
     getTasks(setTasks);
@@ -21,16 +23,15 @@ const TodayTaskPage: React.FC = () => {
       getTasks(setTasks);
       setNewTasks(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getNewTask]);
 
   return (
     <div className="today-task-page">
-      <AddTaskModal
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-        setNewTasks={setNewTasks}
-      />
-      <TaskList tasks={tasks} title={"Today Tasks"} setNewTasks={setNewTasks} />
+      <GetTaskContext.Provider value={{ getNewTask, setNewTasks }}>
+        <AddTaskModal openDialog={openDialog} setOpenDialog={setOpenDialog} />
+        <TaskList tasks={tasks} title={"Today Tasks"} />
+      </GetTaskContext.Provider>
       <AddtaskBtn setOpenDialog={setOpenDialog} />
     </div>
   );

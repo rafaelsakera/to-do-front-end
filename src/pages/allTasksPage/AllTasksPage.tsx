@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { GetTaskContext } from "../../contexts/GetTasksContext";
+
 import TaskList from "../../components/taskList/TaskList";
 import AddtaskBtn from "../../components/addTaskBtn/AddtaskBtn";
 import AddTaskModal from "../../components/dialogs/addTaskDialog/AddTaskDialog";
@@ -9,8 +11,8 @@ import { getTasks } from "../../API/AllTaskAPI";
 
 const AllTaskPage: React.FC = () => {
   const [tasks, setTasks] = useState<CardData[]>([]);
-  const [getNewTask, setNewTasks] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [getNewTask, setNewTasks] = React.useState<boolean>(false);
 
   useEffect(() => {
     getTasks(setTasks);
@@ -21,17 +23,16 @@ const AllTaskPage: React.FC = () => {
       getTasks(setTasks);
       setNewTasks(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getNewTask]);
 
   return (
     <div>
-      <AddTaskModal
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-        setNewTasks={setNewTasks}
-      />
+      <GetTaskContext.Provider value={{ getNewTask, setNewTasks }}>
+        <AddTaskModal openDialog={openDialog} setOpenDialog={setOpenDialog} />
+        <TaskList tasks={tasks} title={"All Tasks"} />
+      </GetTaskContext.Provider>
       <AddtaskBtn setOpenDialog={setOpenDialog} />
-      <TaskList tasks={tasks} title={"All Tasks"} setNewTasks={setNewTasks} />
     </div>
   );
 };
