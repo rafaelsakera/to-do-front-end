@@ -9,11 +9,17 @@ import { addTask } from "../../../API/TodayTaskAPI";
 
 import DialogForm from "./DialogForm";
 
-const AddTaskDialog: React.FC<{
+interface Props {
   openDialog: boolean;
   setOpenDialog: Function;
   setNewTasks: Function;
-}> = ({ openDialog, setOpenDialog, setNewTasks }) => {
+}
+
+const AddTaskDialog: React.FC<Props> = ({
+  openDialog,
+  setOpenDialog,
+  setNewTasks,
+}) => {
   const [newTask, setNewTask] = React.useState({});
 
   return (
