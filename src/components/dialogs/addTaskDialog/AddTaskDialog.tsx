@@ -24,24 +24,24 @@ const AddTaskDialog: React.FC<{
       fullWidth={true}
     >
       <DialogTitle id="new-task-dialog-title">{"Add New Task"}</DialogTitle>
-      <DialogContent>
-        <DialogForm newTask={newTask} setNewTask={setNewTask} />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setOpenDialog(false)} color="primary">
-          Cancle
-        </Button>
-        <Button
-          onClick={() => {
-            addTask(setOpenDialog, newTask);
-            setNewTasks(true);
-          }}
-          color="primary"
-          autoFocus
-        >
-          Add
-        </Button>
-      </DialogActions>
+      <form
+        onSubmit={() => {
+          addTask(setOpenDialog, newTask);
+          setNewTasks(true);
+        }}
+      >
+        <DialogContent>
+          <DialogForm newTask={newTask} setNewTask={setNewTask} />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenDialog(false)} color="primary">
+            Cancle
+          </Button>
+          <Button type="submit" color="primary" autoFocus>
+            Add
+          </Button>
+        </DialogActions>
+      </form>
     </Dialog>
   );
 };

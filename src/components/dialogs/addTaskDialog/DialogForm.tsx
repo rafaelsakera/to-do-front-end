@@ -50,7 +50,7 @@ const DialogForm: React.FC<{ newTask: Object; setNewTask: Function }> = ({
   };
 
   return (
-    <form>
+    <div>
       <div className={classes.newTaskInput}>
         <TextField
           required
@@ -131,7 +131,7 @@ const DialogForm: React.FC<{ newTask: Object; setNewTask: Function }> = ({
           </Grid>
         </MuiPickersUtilsProvider>
       </div>
-    </form>
+    </div>
   );
 };
 
