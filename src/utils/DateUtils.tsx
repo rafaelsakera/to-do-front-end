@@ -36,3 +36,12 @@ export const getWeeklyDates = (): { startDate: string; endDate: string } => {
   const endOfWeek = moment().endOf("week").toDate();
   return { startDate: getDate(startOfWeek), endDate: getDate(endOfWeek) };
 };
+
+export const getDateAndExtra = (
+  type: moment.DurationInputArg2,
+  extra: moment.DurationInputArg1
+) => {
+  let today = moment();
+  let finalDate = moment(today).add(extra, type);
+  return new Date(finalDate.toString());
+};

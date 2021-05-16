@@ -10,7 +10,7 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
-import { dateToString } from "../../../utils/DateUtils";
+import { dateToString, getDateAndExtra } from "../../../utils/DateUtils";
 
 import useStyles from "./Style";
 
@@ -22,8 +22,9 @@ const DialogForm: React.FC<{ newTask: Object; setNewTask: Function }> = ({
   const [selectedStartDate, setSelectedStartDate] = React.useState<Date | null>(
     new Date()
   );
+
   const [selectedEndDate, setSelectedEndDate] = React.useState<Date | null>(
-    new Date()
+    getDateAndExtra("hours", 1)
   );
 
   React.useEffect(() => {
