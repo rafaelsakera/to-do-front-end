@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { deleteTask } from "../../../API/AllTaskAPI";
 import SafetyDialog from "../../dialogs/safetyDialog/SafetyDialog";
+import EditTaskDialog from "../../dialogs/editTaskDialog/EditTaskDialog";
 
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -17,11 +18,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Actions: React.FC<{ id: number; setNewTasks: Function }> = ({
+const Actions: React.FC<{ id: string; setNewTasks: Function }> = ({
   id,
   setNewTasks,
 }) => {
   const classes = useStyles();
+  const [openEdit, setOpenEdit] = useState<boolean>(false);
   const [openSafety, setOpenSafety] = useState<boolean>(false);
 
   const doneHandle = () => {
@@ -29,7 +31,7 @@ const Actions: React.FC<{ id: number; setNewTasks: Function }> = ({
   };
 
   const editHandle = () => {
-    console.log("open modal to edit task - " + id);
+    setOpenEdit(true);
   };
 
   return (
@@ -42,6 +44,11 @@ const Actions: React.FC<{ id: number; setNewTasks: Function }> = ({
           setNewTasks(true);
         }}
         title={"Delete Action"}
+      />
+      <EditTaskDialog
+        openDialog={openEdit}
+        setOpenDialog={setOpenEdit}
+        taskId={id}
       />
       <Grid container spacing={2} justify="center">
         <Grid item>

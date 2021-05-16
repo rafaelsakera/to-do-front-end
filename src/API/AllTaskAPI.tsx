@@ -1,10 +1,6 @@
-import React, { Dispatch } from "react";
-import { CardData } from "../interfaces/CardData";
 import axios from "axios";
 
-export const getTasks = (
-  setTasks: Dispatch<React.SetStateAction<[] | CardData[]>>
-) => {
+export const getTasks = (setTasks: Function) => {
   axios
     .get("/all-tasks")
     .then((res) => setTasks(res.data))
@@ -14,7 +10,7 @@ export const getTasks = (
     });
 };
 
-export const deleteTask = (id: number) => {
+export const deleteTask = (id: string) => {
   axios
     .delete("/delete-task", {
       data: {
