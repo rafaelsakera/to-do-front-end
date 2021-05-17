@@ -16,18 +16,9 @@ const FirstSection: React.FC<Props> = ({
   title,
 }) => {
   const parseDate = (date: string): string => {
-    let d: Date = new Date(date);
-    let year: number = d.getFullYear();
-    let month: string = "" + (d.getMonth() + 1);
-    let day: string = "" + d.getDate();
-    let hour: number = d.getHours();
-    let minute: number | string = d.getMinutes();
-
-    if (month.length < 2) month = "0" + month;
-    if (minute < 10) minute = "0" + minute;
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join("-") + " " + hour + ":" + minute;
+    const parseDate = date.split("T")[0];
+    const parseTime = date.split("T")[1].slice(0, -5);
+    return parseDate + " " + parseTime;
   };
 
   return (
