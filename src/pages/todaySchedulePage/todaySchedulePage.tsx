@@ -8,10 +8,10 @@ import {
   Appointments,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { useStyles } from "./Style";
+import { getTasks } from "../../API/TodayTaskAPI";
 import { getFullDate } from "../../utils/DateUtils";
 import { CardData } from "../../interfaces/CardData";
-import { getTasks } from "../../API/TodayTaskAPI";
-import { minTime, maxTime } from "../../utils/ScheduleUtils";
+import { minTime, maxTime, parseTasks } from "../../utils/ScheduleUtils";
 
 const TodaySchedulePage: React.FC = () => {
   const classes = useStyles();
@@ -32,7 +32,7 @@ const TodaySchedulePage: React.FC = () => {
 
           <Grid container className={classes.calender}>
             <Paper>
-              <Scheduler data={tasks}>
+              <Scheduler data={parseTasks(tasks)}>
                 <ViewState currentDate={currentDate} />
                 <DayView
                   startDayHour={minTime(tasks)}

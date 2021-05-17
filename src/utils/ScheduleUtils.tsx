@@ -31,3 +31,13 @@ export const maxTime = (tasks: CardData[]): number => {
     return max + 1;
   }
 };
+
+export const parseTasks = (tasks: Array<CardData>) => {
+  return tasks.map((t) => {
+    return {
+      startDate: t.startDate.slice(0, -8),
+      endDate: t.endDate.slice(0, -8),
+      title: t.title,
+    };
+  });
+};

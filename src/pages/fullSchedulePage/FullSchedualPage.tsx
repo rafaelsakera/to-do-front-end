@@ -13,7 +13,7 @@ import {
 import { getTasks } from "../../API/AllTaskAPI";
 import { CardData } from "../../interfaces/CardData";
 import { TimeTableCell, DayScaleCell } from "./Utils";
-import { minTime, maxTime } from "../../utils/ScheduleUtils";
+import { minTime, maxTime, parseTasks } from "../../utils/ScheduleUtils";
 
 const FullSchedualPage: React.FC = () => {
   const [tasks, setTasks] = useState<CardData[]>([]);
@@ -24,7 +24,7 @@ const FullSchedualPage: React.FC = () => {
 
   return (
     <Paper>
-      <Scheduler data={tasks}>
+      <Scheduler data={parseTasks(tasks)}>
         <ViewState />
         <WeekView
           startDayHour={minTime(tasks)}
