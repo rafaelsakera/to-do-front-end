@@ -17,7 +17,7 @@ const FirstSection: React.FC<Props> = ({
 }) => {
   const parseDate = (date: string): string => {
     const parseDate = date.split("T")[0];
-    const parseTime = date.split("T")[1].slice(0, -5);
+    const parseTime = date.split("T")[1].slice(0, -8);
     return parseDate + " " + parseTime;
   };
 
