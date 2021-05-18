@@ -19,9 +19,10 @@ export const getFullDate = (): string => {
 };
 
 export const dateToString = (date: Date): string => {
-  const strDate: string = getDate(date);
-  const strTime: string = date.toLocaleTimeString("it-IT");
-  return strDate + "T" + strTime + ".000Z";
+  const dateStringWithTime = moment(date).format("YYYY-MM-DD HH:MM:SS");
+  const d = dateStringWithTime.split(" ")[0];
+  const h = dateStringWithTime.split(" ")[1];
+  return d + "T" + h + ".000Z";
 };
 
 export const getNextDate = (date: string): string => {

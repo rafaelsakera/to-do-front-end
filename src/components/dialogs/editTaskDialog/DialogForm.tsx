@@ -10,9 +10,8 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
-import { dateToString } from "../../../utils/DateUtils";
 import { CardData } from "../../../interfaces/CardData";
-
+import { dateToString } from "../../../utils/DateUtils";
 import useStyles from "./Style";
 
 interface Props {
@@ -22,34 +21,30 @@ interface Props {
 
 const DialogForm: React.FC<Props> = ({ setEditTask, editTask }) => {
   const classes = useStyles();
+
   const [selectedStartDate, setSelectedStartDate] = React.useState<Date | null>(
-    new Date(editTask.startDate)
+    new Date(editTask.startDate.slice(0, -5))
   );
 
   const [selectedEndDate, setSelectedEndDate] = React.useState<Date | null>(
-    new Date(editTask.endDate)
+    new Date(editTask.endDate.slice(0, -5))
   );
 
-  React.useEffect(() => {
-    const strStartDate =
-      selectedStartDate !== null ? dateToString(selectedStartDate) : "";
-
-    const strEndDate =
-      selectedEndDate !== null ? dateToString(selectedEndDate) : "";
-
+  const handleStartDateChange = (date: Date | null) => {
+    const strStartDate = date !== null ? dateToString(date) : "";
     setEditTask({
       ...editTask,
       startDate: strStartDate,
-      endDate: strEndDate,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedStartDate, selectedEndDate]);
-
-  const handleStartDateChange = (date: Date | null) => {
     setSelectedStartDate(date);
   };
 
   const handleEndDateChange = (date: Date | null) => {
+    const strEndDate = date !== null ? dateToString(date) : "";
+    setEditTask({
+      ...editTask,
+      endDate: strEndDate,
+    });
     setSelectedEndDate(date);
   };
 
