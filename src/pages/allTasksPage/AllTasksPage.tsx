@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { GetTaskContext } from "../../contexts/GetTasksContext";
 
 import TaskList from "../../components/taskList/TaskList";
-import AddtaskBtn from "../../components/addTaskBtn/AddtaskBtn";
+import AddTaskBtn from "../../components/addTaskBtn/AddtaskBtn";
 import AddTaskModal from "../../components/dialogs/addTaskDialog/AddTaskDialog";
 
 import { CardData } from "../../interfaces/CardData";
@@ -32,7 +32,7 @@ const AllTaskPage: React.FC = () => {
         <AddTaskModal openDialog={openDialog} setOpenDialog={setOpenDialog} />
         <TaskList tasks={tasks} title={"All Tasks"} />
       </GetTaskContext.Provider>
-      <AddtaskBtn setOpenDialog={setOpenDialog} />
+      <AddTaskBtn setOpenDialog={setOpenDialog} />
     </div>
   );
 };

@@ -4,4 +4,5 @@ export interface CardData {
   startDate: string;
   endDate: string;
   description: string;
+  done: boolean;
 }

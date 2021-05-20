@@ -21,7 +21,7 @@ export const getFullDate = (): string => {
 export const dateToString = (date: Date): string => {
   const dateStringWithTime = moment(date).format("YYYY-MM-DD HH:MM:SS");
   const d = dateStringWithTime.split(" ")[0];
-  const h = dateStringWithTime.split(" ")[1];
+  const h = dateStringWithTime.split(" ")[1].slice(0,-2) + "00";
   return d + "T" + h + ".000Z";
 };
 

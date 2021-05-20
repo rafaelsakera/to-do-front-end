@@ -6,7 +6,7 @@ import Fab from "@material-ui/core/Fab";
 
 import { useStyles } from "./Style";
 
-const AddtaskBtn: React.FC<{ setOpenDialog: Function }> = ({ setOpenDialog }) => {
+const AddTaskBtn: React.FC<{ setOpenDialog: Function }> = ({ setOpenDialog }) => {
   const classes = useStyles();
 
   return (
@@ -22,4 +22,4 @@ const AddtaskBtn: React.FC<{ setOpenDialog: Function }> = ({ setOpenDialog }) =>
   );
 };
 
-export default AddtaskBtn;
+export default AddTaskBtn;

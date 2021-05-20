@@ -22,6 +22,12 @@ interface Props {
 const DialogForm: React.FC<Props> = ({ setEditTask, editTask }) => {
   const classes = useStyles();
 
+  console.log(editTask.startDate.slice(0, -5))
+  console.log(new Date(editTask.startDate.slice(0, -5)))
+
+  console.log(editTask.endDate.slice(0, -5))
+  console.log(new Date(editTask.endDate.slice(0, -5)))
+
   const [selectedStartDate, setSelectedStartDate] = React.useState<Date | null>(
     new Date(editTask.startDate.slice(0, -5))
   );

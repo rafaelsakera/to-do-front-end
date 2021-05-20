@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme: Theme) =>
     cardItem: {
       width: "100%",
     },
+    collapse: {
+      width: "100%",
+    },
   })
 );
 

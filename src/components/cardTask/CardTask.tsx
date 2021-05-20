@@ -44,7 +44,7 @@ const CardTask: React.FC<Props> = ({ data, overTask, setNewTasks }) => {
             <div className={classes.line}></div>
           </Grid>
           <Grid item className={classes.thirdSection}>
-            <Actions id={data._id} setNewTasks={setNewTasks} />
+            <Actions id={data._id} setNewTasks={setNewTasks} done={data.done} />
           </Grid>
         </Grid>
       </CardContent>
