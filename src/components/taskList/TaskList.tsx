@@ -51,27 +51,19 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
           </Grid>
         </Grid>
         <ActionButtons setCollaps={setCollaps} collapse={collapse} />
-        <CollapseCard
-          tasks={toDoTasks}
-          setNewTasks={setNewTasks}
-          collapse={collapse}
-          collapseIn={1}
-          classes={classes}
-        />
-        <CollapseCard
-          tasks={doneTasks}
-          setNewTasks={setNewTasks}
-          collapse={collapse}
-          collapseIn={2}
-          classes={classes}
-        />
-        <CollapseCard
-          tasks={missedTasks}
-          setNewTasks={setNewTasks}
-          collapse={collapse}
-          collapseIn={3}
-          classes={classes}
-        />
+        {[
+          { tasks: toDoTasks, collaps: 1 },
+          { tasks: doneTasks, collaps: 2 },
+          { tasks: missedTasks, collaps: 3 },
+        ].map((t) => (
+          <CollapseCard
+            tasks={t.tasks}
+            setNewTasks={setNewTasks}
+            collapse={collapse}
+            collapseIn={t.collaps}
+            classes={classes}
+          />
+        ))}
       </Grid>
     </Grid>
   );
