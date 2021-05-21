@@ -57,6 +57,7 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
           { tasks: missedTasks, collaps: 3 },
         ].map((t) => (
           <CollapseCard
+            key={t.collaps}
             tasks={t.tasks}
             setNewTasks={setNewTasks}
             collapse={collapse}
