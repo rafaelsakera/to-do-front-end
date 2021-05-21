@@ -3,7 +3,10 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
-const ActionButtons: React.FC<{ setCollaps: Function }> = ({ setCollaps }) => {
+const ActionButtons: React.FC<{ setCollaps: Function; collapse: number }> = ({
+  setCollaps,
+  collapse,
+}) => {
   return (
     <Grid container justify={"center"} spacing={3}>
       <Grid item>
@@ -14,6 +17,7 @@ const ActionButtons: React.FC<{ setCollaps: Function }> = ({ setCollaps }) => {
         >
           Done Tasks
         </Button>
+        {collapse === 2 ? <hr /> : ""}
       </Grid>
       <Grid item>
         <Button
@@ -23,6 +27,7 @@ const ActionButtons: React.FC<{ setCollaps: Function }> = ({ setCollaps }) => {
         >
           To Do Tasks
         </Button>
+        {collapse === 1 ? <hr /> : ""}
       </Grid>
       <Grid item>
         <Button
@@ -32,6 +37,7 @@ const ActionButtons: React.FC<{ setCollaps: Function }> = ({ setCollaps }) => {
         >
           Missed Tasks
         </Button>
+        {collapse === 3 ? <hr /> : ""}
       </Grid>
     </Grid>
   );

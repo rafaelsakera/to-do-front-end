@@ -5,6 +5,7 @@ import { GetTaskContext } from "../../contexts/GetTasksContext";
 import CardTask from "../cardTask/CardTask";
 import { CardData } from "../../interfaces/CardData";
 import ActionButtons from "./components/ActionButtons";
+import CollapseCard from "./components/CollapseCard";
 
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
@@ -51,55 +52,28 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
             </Typography>
           </Grid>
         </Grid>
-        <ActionButtons setCollaps={setCollaps} />
-        <Collapse
-          in={collapse === 1 ? true : false}
-          className={classes.collapse}
-        >
-          <Grid container className={classes.body}>
-            {toDoTasks.map((card: CardData) => (
-              <Grid item className={classes.cardItem} key={card._id}>
-                <CardTask
-                  data={card}
-                  overTask={false}
-                  setNewTasks={setNewTasks}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Collapse>
-        <Collapse
-          in={collapse === 2 ? true : false}
-          className={classes.collapse}
-        >
-          <Grid container className={classes.body}>
-            {doneTasks.map((card: CardData) => (
-              <Grid item className={classes.cardItem} key={card._id}>
-                <CardTask
-                  data={card}
-                  overTask={false}
-                  setNewTasks={setNewTasks}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Collapse>
-        <Collapse
-          in={collapse === 3 ? true : false}
-          className={classes.collapse}
-        >
-          <Grid container className={classes.body}>
-            {missedTasks.map((card: CardData) => (
-              <Grid item className={classes.cardItem} key={card._id}>
-                <CardTask
-                  data={card}
-                  overTask={false}
-                  setNewTasks={setNewTasks}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Collapse>
+        <ActionButtons setCollaps={setCollaps} collapse={collapse} />
+        <CollapseCard
+          tasks={toDoTasks}
+          setNewTasks={setNewTasks}
+          collapse={collapse}
+          collapseIn={1}
+          classes={classes}
+        />
+        <CollapseCard
+          tasks={doneTasks}
+          setNewTasks={setNewTasks}
+          collapse={collapse}
+          collapseIn={2}
+          classes={classes}
+        />
+        <CollapseCard
+          tasks={missedTasks}
+          setNewTasks={setNewTasks}
+          collapse={collapse}
+          collapseIn={3}
+          classes={classes}
+        />
       </Grid>
     </Grid>
   );

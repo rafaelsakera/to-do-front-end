@@ -7,7 +7,7 @@ import CardTask from "../../cardTask/CardTask";
 import { CardData } from "../../../interfaces/CardData";
 
 interface Props {
-  tasks: [];
+  tasks: CardData[];
   setNewTasks: Function;
   collapse: number;
   collapseIn: number;

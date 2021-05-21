@@ -25,8 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bold",
     },
     body: {
-      marginLeft: "2%",
-      marginRight: "2%",
+      margin: 0,
     },
     item: {
       textAlign: "center",
