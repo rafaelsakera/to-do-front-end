@@ -2,14 +2,12 @@ import React, { useContext } from "react";
 
 import { GetTaskContext } from "../../contexts/GetTasksContext";
 
-import CardTask from "../cardTask/CardTask";
 import { CardData } from "../../interfaces/CardData";
 import ActionButtons from "./components/ActionButtons";
 import CollapseCard from "./components/CollapseCard";
 
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
-import Collapse from "@material-ui/core/Collapse";
 
 import useStyles from "./Style";
 
