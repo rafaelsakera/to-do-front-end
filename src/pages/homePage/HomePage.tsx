@@ -1,16 +1,23 @@
 import React from "react";
 
 import { useStyles } from "./Style";
+import PageCard from "./components/Card";
 import Grid from "@material-ui/core/Grid";
+import Grow from "@material-ui/core/Grow";
 import Typography from "@material-ui/core/Typography";
 
 const HomePage: React.FC = () => {
   const classes = useStyles();
+  const [mainCards, setMaincard] = React.useState(false);
+
+  React.useEffect(() => {
+    setMaincard(true);
+  }, []);
 
   return (
     <div>
       <Grid container justify="center">
-        <Typography variant="h3" gutterBottom className={classes.title}>
+        <Typography variant="h3" gutterBottom className={classes.pageTitle}>
           Tasks Scheduler
         </Typography>
       </Grid>
@@ -19,10 +26,42 @@ const HomePage: React.FC = () => {
           Manage your time with:
         </Grid>
         <Grid container justify={"center"} spacing={3}>
-          <Grid item>1</Grid>
-          <Grid item>2</Grid>
-          <Grid item>3</Grid>
-          <Grid item>4</Grid>
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard />
+            </Grid>
+          </Grow>
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard />
+            </Grid>
+          </Grow>
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard />
+            </Grid>
+          </Grow>
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard />
+            </Grid>
+          </Grow>
         </Grid>
       </Grid>
     </div>
