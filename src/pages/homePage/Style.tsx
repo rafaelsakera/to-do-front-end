@@ -3,14 +3,14 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     pageTitle: {
-      fontFamily: "Ariel, Verdana",
+      fontFamily: "Poppins, Ariel, Verdana",
       textAlign: "center",
     },
     firstSection: {
       backgroundColor: "#f0f8ff",
     },
     firstSectionTitle: {
-      fontFamily: "Ariel, Verdana",
+      fontFamily: "Poppins, Ariel, Verdana",
       fontWeight: "bold",
       margin: "10px",
     },
