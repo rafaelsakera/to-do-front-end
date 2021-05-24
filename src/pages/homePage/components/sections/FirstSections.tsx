@@ -5,6 +5,8 @@ import PageCard from "../Card";
 import Grid from "@material-ui/core/Grid";
 import Grow from "@material-ui/core/Grow";
 
+import Logo from "../../img/illustration.svg";
+
 const FirstSection: React.FC = () => {
   const classes = useStyles();
   const [mainCards, setMaincard] = React.useState(false);
@@ -14,47 +16,65 @@ const FirstSection: React.FC = () => {
   }, []);
 
   return (
-    <Grid container className={classes.firstSection}>
-      <Grid container className={classes.firstSectionTitle}>
-        Manage your time with:
+    <Grid
+      container
+      className={classes.firstSection}
+      justify={"center"}
+      spacing={3}
+    >
+      <Grid item className={classes.firstSectionTitle}>
+        <div className={classes.firstSectionTitleCenetr}>
+          Manage your time with
+          <h1 className={classes.pageTitle}>Tasks Scheduler</h1>
+          <img src={Logo} alt="logo.." />
+        </div>
       </Grid>
-      <Grid container justify={"center"} spacing={3}>
-        <Grow
-          in={mainCards}
-          style={{ transformOrigin: "0 0 0" }}
-          {...(mainCards ? { timeout: 1000 } : {})}
+      <Grid item className={classes.firstSectionOption}>
+        <Grid
+          container
+          justify={"center"}
+          className={classes.firstSectionOptionCenter}
         >
-          <Grid item>
-            <PageCard title={""} />
-          </Grid>
-        </Grow>
-        <Grow
-          in={mainCards}
-          style={{ transformOrigin: "0 0 0" }}
-          {...(mainCards ? { timeout: 1000 } : {})}
-        >
-          <Grid item>
-            <PageCard title={""} />
-          </Grid>
-        </Grow>
-        <Grow
-          in={mainCards}
-          style={{ transformOrigin: "0 0 0" }}
-          {...(mainCards ? { timeout: 1000 } : {})}
-        >
-          <Grid item>
-            <PageCard title={""} />
-          </Grid>
-        </Grow>
-        <Grow
-          in={mainCards}
-          style={{ transformOrigin: "0 0 0" }}
-          {...(mainCards ? { timeout: 1000 } : {})}
-        >
-          <Grid item>
-            <PageCard title={""} />
-          </Grid>
-        </Grow>
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard title={""} />
+            </Grid>
+          </Grow>
+
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard title={""} />
+            </Grid>
+          </Grow>
+
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard title={""} />
+            </Grid>
+          </Grow>
+
+          <Grow
+            in={mainCards}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(mainCards ? { timeout: 1000 } : {})}
+          >
+            <Grid item>
+              <PageCard title={""} />
+            </Grid>
+          </Grow>
+        </Grid>
       </Grid>
     </Grid>
   );
