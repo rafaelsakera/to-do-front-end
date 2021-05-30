@@ -9,12 +9,12 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     firstSection: {
       backgroundColor: "#f0f8ff",
-      height: "500px",
+      // height: "500px",
     },
     firstSectionTitle: {
       fontFamily: "Poppins, Ariel, Verdana",
       fontWeight: "bold",
-      width: "50%",
+      minWidth: "50%",
     },
     firstSectionTitleCenetr: {
       margin: "auto",
@@ -23,10 +23,13 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     firstSectionOption: {
       fontFamily: "Poppins, Ariel, Verdana",
-      width: "50%",
     },
     firstSectionOptionCenter: {
       marginTop: "10%",
+    },
+    logo: {
+      height: "100%",
+      width: "100%",
     },
     root: {
       minWidth: 275,
