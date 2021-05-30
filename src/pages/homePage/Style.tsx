@@ -9,7 +9,6 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     firstSection: {
       backgroundColor: "#f0f8ff",
-      // height: "500px",
     },
     firstSectionTitle: {
       fontFamily: "Poppins, Ariel, Verdana",
