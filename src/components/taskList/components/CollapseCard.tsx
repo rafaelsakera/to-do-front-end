@@ -16,6 +16,7 @@ interface Props {
     body: string;
     cardItem: string;
   };
+  state: string;
 }
 
 const CollapseCard: React.FC<Props> = ({
@@ -24,6 +25,7 @@ const CollapseCard: React.FC<Props> = ({
   collapse,
   collapseIn,
   classes,
+  state,
 }) => {
   return (
     <Collapse
@@ -33,7 +35,11 @@ const CollapseCard: React.FC<Props> = ({
       <Grid container className={classes.body}>
         {tasks.map((card: CardData) => (
           <Grid item className={classes.cardItem} key={card._id}>
-            <CardTask data={card} overTask={false} setNewTasks={setNewTasks} />
+            <CardTask
+              data={card}
+              state={state}
+              setNewTasks={setNewTasks}
+            />
           </Grid>
         ))}
       </Grid>

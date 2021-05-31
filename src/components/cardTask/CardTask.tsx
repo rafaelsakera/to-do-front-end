@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
@@ -14,13 +13,25 @@ import { baseCardStyle } from "./Style";
 
 interface Props {
   data: CardData;
-  overTask: boolean;
+  state: string;
   setNewTasks: Function;
 }
 
-const CardTask: React.FC<Props> = ({ data, overTask, setNewTasks }) => {
+const CardTask: React.FC<Props> = ({ data, state, setNewTasks }) => {
   const classes = baseCardStyle();
-  const root = clsx(classes.root, overTask && classes.overTime);
+  let root;
+
+  switch (state) {
+    case "toDo":
+      root = classes.root;
+      break;
+    case "done":
+      root = classes.done;
+      break;
+    case "over":
+      root = classes.overTime;
+      break;
+  }
 
   return (
     <Card className={root} variant="outlined">

@@ -52,9 +52,9 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
         </Grid>
         <ActionButtons setCollaps={setCollaps} collapse={collapse} />
         {[
-          { tasks: toDoTasks, collaps: 1 },
-          { tasks: doneTasks, collaps: 2 },
-          { tasks: missedTasks, collaps: 3 },
+          { tasks: toDoTasks, collaps: 1, state: "toDo" },
+          { tasks: doneTasks, collaps: 2, state: "done" },
+          { tasks: missedTasks, collaps: 3, state: "over" },
         ].map((t) => (
           <CollapseCard
             key={t.collaps}
@@ -63,6 +63,7 @@ const TaskList: React.FC<Props> = ({ tasks, title }) => {
             collapse={collapse}
             collapseIn={t.collaps}
             classes={classes}
+            state={t.state}
           />
         ))}
       </Grid>

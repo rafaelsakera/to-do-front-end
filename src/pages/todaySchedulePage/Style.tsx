@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     page: {
       backgroundColor: "#f0f8ff",
+      paddingBottom: "20px",
       borderRadius: "15px",
       "@media (min-width: 720px)": {
         width: "80%",

@@ -6,7 +6,14 @@ export const baseCardStyle = makeStyles({
     height: 150,
   },
   overTime: {
+    margin: "5px",
+    height: 150,
     backgroundColor: "#ff000045",
+  },
+  done: {
+    margin: "5px",
+    height: 150,
+    backgroundColor: "#00800059",
   },
   bullet: {
     display: "inline-block",
