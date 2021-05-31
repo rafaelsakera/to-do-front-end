@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme: Theme) =>
     collapse: {
       width: "100%",
     },
+    img: {
+      margin: "auto",
+    },
+    imgR: {
+      borderRadius: "15px",
+    },
   })
 );
 
