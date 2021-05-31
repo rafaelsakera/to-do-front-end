@@ -49,5 +49,8 @@ export const useStyles = makeStyles((theme: Theme) =>
     pos: {
       marginBottom: 12,
     },
+    description: {
+      textTransform: "none",
+    },
   })
 );

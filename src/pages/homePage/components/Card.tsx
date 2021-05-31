@@ -6,30 +6,32 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 
-const PageCard: React.FC<{title: string}> = () => {
+const PageCard: React.FC<{
+  title: string;
+  description: any;
+  onClick: Function;
+}> = ({ title, description, onClick }) => {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+
   return (
-    <Button>
+    <Button onClick={() => onClick()}>
       <Card className={classes.root} variant="outlined">
         <CardContent>
+          <br />
           <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
+            variant="h5"
+            component="h2"
+            style={{
+              fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
+              textTransform: "none",
+              fontWeight: "bold",
+            }}
           >
-            Word of the Day
+            {title}
           </Typography>
-          <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
+          <br />
+          <Typography variant="body2" component="div">
+            {description}
           </Typography>
         </CardContent>
       </Card>

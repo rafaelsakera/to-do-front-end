@@ -4,10 +4,12 @@ import { useStyles } from "../../Style";
 import PageCard from "../Card";
 import Grid from "@material-ui/core/Grid";
 import Grow from "@material-ui/core/Grow";
+import { useHistory } from "react-router-dom";
 
 import Logo from "../../img/illustration.svg";
 
 const FirstSection: React.FC = () => {
+  let history = useHistory();
   const classes = useStyles();
   const [mainCards, setMaincard] = React.useState(false);
 
@@ -42,7 +44,17 @@ const FirstSection: React.FC = () => {
             {...(mainCards ? { timeout: 1000 } : {})}
           >
             <Grid item>
-              <PageCard title={""} />
+              <PageCard
+                title={"Today Tasks"}
+                description={
+                  <div className={classes.description}>
+                    Manage your upcoming tasks with
+                    <br />
+                    "Today Tasks" Section
+                  </div>
+                }
+                onClick={()=>history.push("/today-tasks")}
+              />
             </Grid>
           </Grow>
 
@@ -52,7 +64,17 @@ const FirstSection: React.FC = () => {
             {...(mainCards ? { timeout: 1000 } : {})}
           >
             <Grid item>
-              <PageCard title={""} />
+              <PageCard
+                title={"Today Schedule"}
+                description={
+                  <div className={classes.description}>
+                    Check your Schedule with
+                    <br />
+                    "Today Schedule" Section
+                  </div>
+                }
+                onClick={()=>history.push("/today-schedule")}
+              />
             </Grid>
           </Grow>
         </Grid>
@@ -63,7 +85,17 @@ const FirstSection: React.FC = () => {
             {...(mainCards ? { timeout: 1000 } : {})}
           >
             <Grid item>
-              <PageCard title={""} />
+              <PageCard
+                title={"All Tasks"}
+                description={
+                  <div className={classes.description}>
+                    Manage all of your tasks with
+                    <br />
+                    "All Tasks" Section
+                  </div>
+                }
+                onClick={()=>history.push("/all-tasks")}
+              />
             </Grid>
           </Grow>
 
@@ -73,7 +105,17 @@ const FirstSection: React.FC = () => {
             {...(mainCards ? { timeout: 1000 } : {})}
           >
             <Grid item>
-              <PageCard title={""} />
+              <PageCard
+                title={"Weekly Schedule"}
+                description={
+                  <div className={classes.description}>
+                    Manage your week  with
+                    <br />
+                    "Weekly Schedule" Section
+                  </div>
+                }
+                onClick={()=>history.push("/full-schedule")}
+              />
             </Grid>
           </Grow>
         </Grid>
