@@ -10,6 +10,8 @@ import {
   Toolbar,
 } from "@devexpress/dx-react-scheduler-material-ui";
 
+import { useStyles } from "./Style";
+
 import { getTasks } from "../../API/AllTaskAPI";
 import { CardData } from "../../interfaces/CardData";
 import { TimeTableCell, DayScaleCell } from "./Utils";
@@ -17,13 +19,14 @@ import { minTime, maxTime, parseTasks } from "../../utils/ScheduleUtils";
 
 const FullSchedualPage: React.FC = () => {
   const [tasks, setTasks] = useState<CardData[]>([]);
+  const classes = useStyles();
 
   useEffect(() => {
     getTasks(setTasks);
   }, []);
 
   return (
-    <Paper>
+    <Paper className={classes.paper}>
       <Scheduler data={parseTasks(tasks)}>
         <ViewState />
         <WeekView

@@ -29,4 +29,10 @@ export const useStyles = makeStyles((theme) => ({
   dateTitle: {
     fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"].join(","),
   },
+  paper: {
+    width: "80%",
+    margin: "auto",
+    boxShadow: "2px 2px 4px #000000;",
+    height: "90vh",
+  },
 }));
