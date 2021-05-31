@@ -31,7 +31,7 @@ const TodaySchedulePage: React.FC = () => {
           </Grid>
 
           <Grid container className={classes.calender}>
-            <Paper>
+            <Paper className={classes.paper}>
               <Scheduler data={parseTasks(tasks)}>
                 <ViewState currentDate={currentDate} />
                 <DayView

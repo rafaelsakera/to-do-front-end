@@ -28,5 +28,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       color: "rgb(68 108 149 / 77%)",
       fontWeight: "bold",
     },
+    paper: {
+      boxShadow: "2px 2px 4px #000000;",
+      height: "75vh",
+    },
   })
 );
