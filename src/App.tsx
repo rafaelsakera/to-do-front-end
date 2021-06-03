@@ -1,16 +1,25 @@
 import React from "react";
 import "./App.css";
 
+import useToken from "./hooks/UseToken";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import ButtonAppBar from "./components/navBar/navBar";
+
+import HomePage from "./pages/homePage/HomePage";
+import LoginPage from "./pages/loginPage/LoginPage";
 import AllTasksPage from "./pages/allTasksPage/AllTasksPage";
 import TodayTaskPage from "./pages/todayTasksPage/TodayTaskPage";
 import FullSchedualPage from "./pages/fullSchedulePage/FullSchedualPage";
 import TodaySchedulePage from "./pages/todaySchedulePage/todaySchedulePage";
-import HomePage from "./pages/homePage/HomePage";
 
 const App: React.FC = () => {
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <LoginPage setToken={setToken} />;
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
