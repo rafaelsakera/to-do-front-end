@@ -1,20 +1,23 @@
 import React from "react";
 
 import { useStyles } from "../../Style";
+import { useHistory } from "react-router-dom";
+import { getUserName } from "../../../../API/Auth";
+
 import PageCard from "../Card";
 import Grid from "@material-ui/core/Grid";
 import Grow from "@material-ui/core/Grow";
-import { useHistory } from "react-router-dom";
-
 import Logo from "../../img/illustration.svg";
 
 const FirstSection: React.FC = () => {
   let history = useHistory();
   const classes = useStyles();
   const [mainCards, setMaincard] = React.useState(false);
+  const [userName, setUserName] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setMaincard(true);
+    getUserName(setUserName);
   }, []);
 
   return (
@@ -26,7 +29,9 @@ const FirstSection: React.FC = () => {
           {...(mainCards ? { timeout: 1000 } : {})}
         >
           <div className={classes.firstSectionTitleCenetr}>
-            Manage your time with
+            {userName
+              ? userName + ", Manage your time with"
+              : "Manage your time with"}
             <h1 className={classes.pageTitle}>Tasks Scheduler</h1>
             <img className={classes.logo} src={Logo} alt="logo.." />
           </div>
@@ -53,7 +58,7 @@ const FirstSection: React.FC = () => {
                     "Today Tasks" Section
                   </div>
                 }
-                onClick={()=>history.push("/today-tasks")}
+                onClick={() => history.push("/today-tasks")}
               />
             </Grid>
           </Grow>
@@ -73,7 +78,7 @@ const FirstSection: React.FC = () => {
                     "Today Schedule" Section
                   </div>
                 }
-                onClick={()=>history.push("/today-schedule")}
+                onClick={() => history.push("/today-schedule")}
               />
             </Grid>
           </Grow>
@@ -94,7 +99,7 @@ const FirstSection: React.FC = () => {
                     "All Tasks" Section
                   </div>
                 }
-                onClick={()=>history.push("/all-tasks")}
+                onClick={() => history.push("/all-tasks")}
               />
             </Grid>
           </Grow>
@@ -109,12 +114,12 @@ const FirstSection: React.FC = () => {
                 title={"Weekly Schedule"}
                 description={
                   <div className={classes.description}>
-                    Manage your week  with
+                    Manage your week with
                     <br />
                     "Weekly Schedule" Section
                   </div>
                 }
-                onClick={()=>history.push("/full-schedule")}
+                onClick={() => history.push("/full-schedule")}
               />
             </Grid>
           </Grow>

@@ -8,11 +8,8 @@ export const loginUser = (credentials: object, setToken: Function) => {
     .then((res) => setToken(res));
 };
 
-// export const newToken = (func: Function, args: any[]) => {
-//   axios
-//     .post("/token", { token: localStorage.getItem("refreshToken") })
-//     .then((res) => {
-//       localStorage.setItem("token", JSON.stringify(res.data.token));
-//     })
-//     .then(() => func(...args));
-// };
+export const getUserName = (setUserName: Function) => {
+  axios.get("/user-name").then((res) => {
+    setUserName(res.data);
+  });
+};
