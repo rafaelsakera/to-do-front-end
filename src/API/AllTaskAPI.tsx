@@ -5,7 +5,6 @@ export const getTasks = (setTasks: Function) => {
     .get("/all-tasks")
     .then((res) => setTasks(res.data))
     .catch((err) => {
-      setTasks([]);
       console.log(err);
     });
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+import axios from "axios";
+
 import useToken from "./hooks/UseToken";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -19,6 +21,8 @@ const App: React.FC = () => {
   if (!token) {
     return <LoginPage setToken={setToken} />;
   }
+
+  axios.defaults.headers.common["auth-token"] = token;
 
   return (
     <BrowserRouter>
