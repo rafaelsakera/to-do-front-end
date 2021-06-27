@@ -30,7 +30,7 @@ const FirstSection: React.FC = () => {
         >
           <div className={classes.firstSectionTitleCenetr}>
             {userName
-              ? userName + ", Manage your time with"
+              ? "Hello " + userName + ", Manage your time with"
               : "Manage your time with"}
             <h1 className={classes.pageTitle}>Tasks Scheduler</h1>
             <img className={classes.logo} src={Logo} alt="logo.." />

@@ -1,12 +1,11 @@
 import axios from "axios";
+import { errHeandle } from "../utils/ErrorUtils";
 
 export const getTasks = (setTasks: Function) => {
   axios
     .get("/all-tasks")
     .then((res) => setTasks(res.data))
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => errHeandle(err));
 };
 
 export const deleteTask = (id: string) => {
@@ -16,7 +15,5 @@ export const deleteTask = (id: string) => {
         taskId: id,
       },
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => errHeandle(err));
 };

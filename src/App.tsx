@@ -16,10 +16,10 @@ import FullSchedualPage from "./pages/fullSchedulePage/FullSchedualPage";
 import TodaySchedulePage from "./pages/todaySchedulePage/todaySchedulePage";
 
 const App: React.FC = () => {
-  const { token, setToken } = useToken();
+  const { setToken, token } = useToken();
 
   if (!token) {
-    return <LoginPage setToken={setToken} />;
+    return <LoginPage setToken={setToken}/>;
   }
 
   axios.defaults.headers.common["auth-token"] = token;

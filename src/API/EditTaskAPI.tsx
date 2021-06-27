@@ -1,12 +1,11 @@
 import axios from "axios";
+import { errHeandle } from "../utils/ErrorUtils";
 
 export const getEditTask = (taskId: string, setEditTask: Function) => {
   axios
     .get("/task-by-id?taskId=" + taskId)
     .then((res) => setEditTask(res.data[0]))
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => errHeandle(err));
 };
 
 export const editTask = (
@@ -18,7 +17,5 @@ export const editTask = (
     .post("/edit-task", task)
     .then(() => setNewTasks(true))
     .then(() => setClose(false))
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => errHeandle(err));
 };

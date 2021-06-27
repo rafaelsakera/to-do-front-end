@@ -1,4 +1,5 @@
 import axios from "axios";
+import { errHeandle } from "../utils/ErrorUtils";
 
 export const getTasks = (
   startDate: string,
@@ -15,6 +16,6 @@ export const getTasks = (
     .then((res) => setTasks(res.data))
     .catch((err) => {
       setTasks([]);
-      console.log(err);
+      errHeandle(err);
     });
 };
