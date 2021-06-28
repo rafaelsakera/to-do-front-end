@@ -13,6 +13,11 @@ import Logo from "./img/logo.png";
 const ButtonAppBar: React.FC = () => {
   const classes = useStyles();
 
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    window.location.assign("/");
+  };
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position="static" elevation={0}>
@@ -60,6 +65,13 @@ const ButtonAppBar: React.FC = () => {
               </Typography>
             </Button>
           </Link>
+          <Button
+            color="inherit"
+            className={classes.out}
+            onClick={handleLogOut}
+          >
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

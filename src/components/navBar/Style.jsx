@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) =>
     appBar: {
       color: "black",
       backgroundColor: "white",
-      paddingRight: "8%",
+      paddingRight: "1%",
       paddingLeft: "2%",
     },
     title: {
@@ -28,6 +28,16 @@ export const useStyles = makeStyles((theme) =>
     },
     link: {
       textDecoration: "none",
+    },
+    out: {
+      flexGrow: 1,
+      textDecoration: "none",
+      textTransform: "none",
+      justifyContent: "flex-end",
+      "&:hover": {
+        backgroundColor: "white",
+        textDecoration: "underline",
+      },
     },
   })
 );
